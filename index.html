@@ -14,6 +14,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -39,8 +41,8 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">I'm Jeevan</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Website/Android app developer, bringing ideas to life using coding.</h2>
+                        <h1 class="mx-auto my-0 text-uppercase hidemeY">I'm Jeevan</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5 hidemeX">Website/Android app developer, bringing ideas to life using coding.</h2>
                         <a class="btn btn-primary" href="#contact">Contact me</a>
                     </div>
                 </div>
@@ -51,8 +53,8 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="text-white mb-4">A word about me</h2>
-                        <p class="text-white-50">
+                        <h2 class="text-white mb-4 hidemeY">A word about me</h2>
+                        <p class="text-white-50 hidemeX">
                             Hello world! I love combining the worlds of logic and creative design to make eye-catching, accessible, and user friendly websites and apps. Solving logical problems and creating technologies that are both fun and innovative are some of my interests.
                         </p>
                     </div>
@@ -65,8 +67,8 @@
             <div class="container px-4 px-lg-5">
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/latest.png" alt="..." /></div>
-                    <div class="col-xl-4 col-lg-5">
+                    <div class="col-xl-8 col-lg-7 hidemeY"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/latest.png" alt="..." /></div>
+                    <div class="col-xl-4 col-lg-5 hidemeX">
                         <div class="featured-text text-center text-lg-left">
                             <h4>Latest Project</h4>
                             <p class="text-black-50 mb-0"><a href="http://www.missu.co.in" target="_blank">Missu</a> is a chocolate manufacturing company based in India. The customer wanted a simple yet sleek design to showcase their products and they got it.</p>
@@ -74,7 +76,7 @@
                     </div>
                 </div>
                 <h2 style="margin-top: 100px; margin-bottom: 50px; text-align: center;" id="recentworks"><span style="color: #64a19d;">Recent</span> Works</h2>
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center hidemeY">
                     <div class="col-lg-4">
                         <a href="https://play.google.com/store/apps/details?id=com.app.partial" style="text-decoration: none; color: black;" target="_blank">
                             <div class="card">
@@ -121,7 +123,7 @@
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <div class="project-text w-100 my-auto text-center text-lg-left hidemeY">
                                     <h4 class="text-white">Website development</h4>
                                     <p class="mb-0 text-white-50">I enjoy building everything from small personal sites to rich interactive web apps. If you are business/person looking for a web presence contact me.</p>
                                     <hr class="d-none d-lg-block mb-0 ms-0" />
@@ -139,7 +141,7 @@
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <div class="project-text w-100 my-auto text-center text-lg-right hidemeX">
                                     <h4 class="text-white">App development</h4>
                                     <p class="mb-0 text-white-50">Whether it be a simple counter app or a full blown ecommerce app, you can count on me to build the most personalized android app with beautiful UI/UX tailored according to your own specifications/expectations</p>
                                     <hr class="d-none d-lg-block mb-0 me-0" />
@@ -156,7 +158,7 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Drop a line!</h2>
+                        <h2 class="text-white mb-5 hidemeY">Drop a line!</h2>
                         <div class="row input-group-newsletter">
                             <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter a message" style="height: 100%;"/></div>
                             <div class="col-auto"><a href="mailto:jeevanabishek2003@gmail.com?body=" id="sendmaillink"><button class="btn btn-primary" id="submitButton" type="submit">Send message</button></a></div>
@@ -219,10 +221,47 @@
         document.getElementById("emailAddress").addEventListener("keyup", function(event){
             document.getElementById("sendmaillink").href = "mailto:jeevanabishek2003@gmail.com?body=" + document.getElementById("emailAddress").value;
         })
+
+        $(".hidemeY").each(function(i){
+            var controller = new ScrollMagic.Controller();
+            var ourScene = new ScrollMagic.Scene({
+                triggerElement: $(".hidemeY").get(i),
+                reverse: true,
+                triggerHook: 0.9
+            }).setClassToggle($(".hidemeY").get(i), "show").addTo(controller)
+        })
+        $(".hidemeX").each(function(i){
+            var controller = new ScrollMagic.Controller();
+            var ourScene = new ScrollMagic.Scene({
+                triggerElement: $(".hidemeX").get(i),
+                reverse: true,
+                triggerHook: 0.9
+            }).setClassToggle($(".hidemeX").get(i), "show").addTo(controller)
+        })
     </script>
 </html>
 
 <style>
+
+    .hidemeX{
+        opacity: 0;
+        transform: translateX(-300px);
+        transition: all 2s ease-out;
+    }
+    .hidemeX.show{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .hidemeY{
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 2s ease-out;
+    }
+    .hidemeY.show{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     #projects .col-lg-4{
         padding: 0 15px;
     }
